@@ -8,7 +8,7 @@ class Stack:
     def is_empty(self):
         return self.items == []
 
-    def push(self, hehe):
+    def push(self, data):
         self.items.append(data)
         if not self.maxVal or data >= self.maxVal[len(self.maxVal) - 1]:
             self.maxVal.append(data)
