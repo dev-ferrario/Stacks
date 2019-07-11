@@ -51,5 +51,3 @@ class Stack:
 
     def print(self):
         print(self.items)
-
-
