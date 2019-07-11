@@ -30,6 +30,14 @@ class Stack:
         result = self.items.copy()
         result.reverse()
         return result
+   
+    def reverse3(self):
+        lo = 0
+        hi = len(self.items) - 1
+        while lo < hi:
+            self.items[lo], self.items[hi] = self.items[hi], self.items[lo]
+            lo += 1
+            hi -= 1
 
     def print(self):
         print(self.items)
