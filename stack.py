@@ -3,15 +3,21 @@
 class Stack:
     def __init__(self):
         self.items = []
+        self.maxVal = []
 
     def is_empty(self):
         return self.items == []
 
     def push(self, data):
         self.items.append(data)
+        if not self.maxVal or data >= self.maxVal[len(self.maxVal) - 1]:
+            self.maxVal.append(data)
 
     def pop(self):
-        return self.items.pop()
+        poppedVal = self.items.pop()
+        if poppedVal == self.maxVal[len(self.maxVal)-1]:
+            self.maxVal.pop()
+        return poppedVal
 
     def top(self):
         return self.items[len(self.items) - 1]
@@ -30,7 +36,7 @@ class Stack:
         result = self.items.copy()
         result.reverse()
         return result
-   
+
     def reverse3(self):
         lo = 0
         hi = len(self.items) - 1
@@ -39,6 +45,9 @@ class Stack:
             lo += 1
             hi -= 1
 
+    def getMax(self):
+        if self.maxVal:
+            return self.maxVal[len(self.maxVal) - 1]
+
     def print(self):
         print(self.items)
-
